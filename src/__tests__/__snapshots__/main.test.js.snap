@@ -163,6 +163,7 @@ exports[`Main should apply custom activeTextStyle to active tab 1`] = `
         </View>
       </View>
       <View
+        animation={true}
         collapsable={undefined}
         color="#fff"
         style={
@@ -351,6 +352,7 @@ exports[`Main should apply custom fontFamily to tab 1`] = `
         </View>
       </View>
       <View
+        animation={true}
         collapsable={undefined}
         color="#fff"
         style={
@@ -535,6 +537,7 @@ exports[`Main should display tab labels not uppercased 1`] = `
         </View>
       </View>
       <View
+        animation={true}
         collapsable={undefined}
         color="#fff"
         style={
@@ -719,6 +722,7 @@ exports[`Main should render without errors 1`] = `
         </View>
       </View>
       <View
+        animation={true}
         collapsable={undefined}
         color="#fff"
         style={

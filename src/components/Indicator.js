@@ -7,10 +7,11 @@ import styled from 'styled-components';
 type BarProps = {
   tabWidth: number,
   color: string,
+  animation: boolean,
 };
 
 const Bar = styled(Animated.View)`
-  height: 0;
+  height: ${(props: BarProps) => props.animation ? 2 : 0};
   width: ${(props: BarProps) => props.tabWidth};
   position: absolute;
   bottom: 0;
@@ -26,6 +27,7 @@ type IndicatorProps = {
 
 const Indicator = (props: IndicatorProps) => (
   <Bar
+    animation={props.animation}
     color={props.color}
     style={{ transform: [{ translateX: props.value }] }}
     tabWidth={props.tabWidth}

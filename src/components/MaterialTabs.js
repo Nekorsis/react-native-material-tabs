@@ -46,6 +46,7 @@ export default class MaterialTabs extends React.Component<Props, State> {
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
     uppercase: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
+    animation: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -60,6 +61,7 @@ export default class MaterialTabs extends React.Component<Props, State> {
     textStyle: null,
     uppercase: true,
     activeTextStyle: {},
+    animation: true,
   };
 
   state = {
@@ -142,14 +144,14 @@ export default class MaterialTabs extends React.Component<Props, State> {
   }
 
   selectTab() {
-    /*
-    Animated.spring(this.state.indicatorPosition, {
-      toValue: this.getAnimateValues().indicatorPosition,
-      tension: 300,
-      friction: 20,
-      useNativeDriver: true,
-    }).start();
-    */
+    if (this.props.animation) {
+      Animated.spring(this.state.indicatorPosition, {
+        toValue: this.getAnimateValues().indicatorPosition,
+        tension: 300,
+        friction: 20,
+        useNativeDriver: true,
+      }).start();
+    }
     this.scrollView.scrollTo({
       x: this.getAnimateValues().scrollPosition,
     });
@@ -199,6 +201,7 @@ export default class MaterialTabs extends React.Component<Props, State> {
 
           <Indicator
             color={this.props.indicatorColor}
+            animation={this.props.animation}
             value={this.state.indicatorPosition}
             tabWidth={
               !this.props.scrollable
